@@ -19,10 +19,15 @@ export default class Player {
             this.sprite.setVelocityX(0);
         }
 
+        // Acceleration and smooth deceleration for flight
+        const flightSpeed = 300;
+        const deceleration = 0.98;
+        const maxVelocity = 400;
+
         if (Phaser.Input.Keyboard.JustDown(this.flapKey)) {
-            this.sprite.setVelocityY(-200);
+            this.sprite.setVelocityY(Math.max(this.sprite.body.velocity.y - flightSpeed, -maxVelocity));
         }
 
-        this.sprite.setVelocityY(this.sprite.body.velocity.y * 0.98);
+        this.sprite.setVelocityY(this.sprite.body.velocity.y * deceleration);
     }
 }

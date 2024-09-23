@@ -18,11 +18,15 @@ export default class EnemyAI {
         }
 
         // Move horizontally
-        this.enemy.setVelocityX(50 * this.direction);
+        this.enemy.setVelocityX(100 * this.direction);  // Faster horizontal movement
 
-        // Random flapping
-        if (Math.random() < 0.02) {
-            this.enemy.setVelocityY(-200);
+        // Random flapping with a slight boost if near player
+        const playerPosition = this.scene.player.sprite.body.position;
+        const enemyPosition = this.enemy.body.position;
+        const distance = Phaser.Math.Distance.Between(playerPosition.x, playerPosition.y, enemyPosition.x, enemyPosition.y);
+
+        if (distance < 200 || Math.random() < 0.05) {
+            this.enemy.setVelocityY(-250);  // Flap more aggressively if near player
         }
 
         // Gradual slowdown (air resistance)
