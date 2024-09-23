@@ -25,11 +25,11 @@ Before you begin, ensure you have met the following requirements:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/joust-game-clone.git
+   git clone https://github.com/cschladetsch/JSoust.git
    ```
 2. Navigate to the project directory:
    ```
-   cd joust-game-clone
+   cd JSoust
    ```
 3. Install the necessary dependencies:
    ```
